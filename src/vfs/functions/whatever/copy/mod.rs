@@ -20,7 +20,7 @@ pub fn copy(from: impl AsRef<Path>, to: impl AsRef<Path>) -> Result<u64, Error>
     else if from_ref.is_symlink() {
         return vfs::symlink::copy(from_ref, to_ref).map(|_| 0);
     }
-    else if from_ref.is_hardlink() {
+    else if from_ref.may_be_hardlink() {
         return vfs::hardlink::create(from_ref, to_ref).map(|_| 0);
     }
     else {
