@@ -5,10 +5,8 @@ edition = "2024"
 description = "The FortunatoZukunftdeuter's Standard Library"
 license = "Apache-2.0"
 repository = "https://github.com/FortunatoZukunftdeuter/ZtdRust"
-homepage = "https://github.com/FortunatoZukunftdeuter/ZtdRust"
-documentation = "https://docs.rs/ztd"
 readme = "README.md"
-keywords = ["bayern", "split", "pattern", "parser", "amplified", "expansion", "ztd"]
+keywords = ["bayern", "split", "amplified"]
 categories = ["text-processing", "no-std"]
 
 [lints.cargo]
