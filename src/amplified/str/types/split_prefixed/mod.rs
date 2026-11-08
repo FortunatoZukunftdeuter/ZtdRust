@@ -10,7 +10,7 @@ pub struct ZtdSplitPrefixed<'a, P1, P2: Pattern> {
     split: ZtdSplitWithFix<'a, P1, P2, &'static str>,
 }
 
-impl<'a, P1, P2> ZtdSplitUnprefixed<'a, P1, P2>
+impl<'a, P1, P2> ZtdSplitPrefixed<'a, P1, P2>
 where
     P1: Pattern + Clone,
     for<'b> P1::Searcher<'b>: ReverseSearcher<'b>,

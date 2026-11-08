@@ -54,5 +54,6 @@ pub use crate::Debugger;
 
 pub use crate::str::{
     ZtdSplitUnprefixed,
+    ZtdSplitPrefixed,
     traits::*
 };

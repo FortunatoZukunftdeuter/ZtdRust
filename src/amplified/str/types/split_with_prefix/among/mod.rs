@@ -28,7 +28,7 @@ where
             let prefix = self.prefix.clone();
             let subfix = self.subfix.clone();
 
-            let before = &slice[..matched_start];
+            let before = &slice[start..matched_start];
             let after = &slice[matched_end..];
 
             let is_among = before.ends_with(prefix) && after.starts_with(subfix);
