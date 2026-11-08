@@ -45,9 +45,14 @@ pub use crate::variants::{
     ResultToPossible,
     OptionToPossible
 };
-
 pub use crate::vfs::{
     ZtdHardlink
 };
 
 pub use crate::Debugger;
+
+
+pub use crate::str::{
+    ZtdSplitUnprefixed,
+    traits::*
+};
