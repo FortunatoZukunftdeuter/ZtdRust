@@ -52,8 +52,4 @@ pub use crate::vfs::{
 pub use crate::Debugger;
 
 
-pub use crate::str::{
-    ZtdSplitUnprefixed,
-    ZtdSplitPrefixed,
-    traits::*
-};
+pub use crate::str::traits::*;
