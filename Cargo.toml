@@ -1,11 +1,21 @@
 [package]
 name = "ztd"
-version = "0.1.0"
+version = "0.0.5"
 edition = "2024"
+description = "The FortunatoZukunftdeuter's Standard Library"
+license = "Apache-2.0"
+repository = "https://github.com/FortunatoZukunftdeuter/ZtdRust"
+homepage = "https://github.com/FortunatoZukunftdeuter/ZtdRust"
+documentation = "https://docs.rs/ztd"
+readme = "README.md"
+keywords = ["bayern", "split", "pattern", "parser", "amplified", "expansion", "ztd"]
+categories = ["text-processing", "no-std"]
+
+[lints.cargo]
+unused_dependencies = "allow"
 
 [dependencies]
 windows-sys = { version = "0.59", features = ["Win32_Foundation", "Win32_Storage_FileSystem"] }
-
 
 [features]
 default = ["pattern"]
