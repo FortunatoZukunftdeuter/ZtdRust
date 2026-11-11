@@ -52,4 +52,7 @@ pub use crate::vfs::{
 pub use crate::Debugger;
 
 
-pub use crate::str::traits::*;
+pub use crate::amplified::{
+    str::traits::*,
+    prcs::traits::*
+};

@@ -4,10 +4,11 @@ use std::str::pattern::{
     Searcher
 };
 
-pub fn split_unprefixed_once<'a, P1, P2>(
+pub(crate) fn split_with_prefix_once<'a, P1, P2>(
     string: &'a str,
     prefix: P1,
     spliter: P2,
+    must_be_prefixed: bool
 ) -> Option<(&'a str, &'a str)>
 where
     P1: Pattern + Clone,
@@ -22,7 +23,8 @@ where
 
         let before = &string[..start];
 
-        if before.ends_with(prefix) { 
+        let has_prefixed = before.ends_with(prefix);
+        if must_be_prefixed != has_prefixed { 
             continue; 
         }
 
