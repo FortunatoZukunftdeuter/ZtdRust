@@ -25,7 +25,7 @@ pub use crate::{
     bye_expldln
 };
 
-use crate::{
+pub use crate::{
     printd,
     prints,
     printds,
@@ -35,8 +35,8 @@ use crate::{
     printsj,
     printdj,
     printdsj,
-    printlnj,
-    printdlnj
+    printdlnj,
+    printlnj
 };
 
 pub use crate::variants::{
@@ -53,6 +53,9 @@ pub use crate::Debugger;
 
 
 pub use crate::amplified::{
-    str::traits::*,
     prcs::traits::*
+};
+#[cfg(feature = "pattern")]
+pub use crate::amplified::{
+    str::traits::*
 };

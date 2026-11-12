@@ -159,6 +159,20 @@ impl Bayern {
                 self.msg_plus(msg, ".\n");
                 self
             }
+            pub fn msgs<AsStr>(&mut self, msg: AsStr) -> &mut Self
+            where
+                AsStr: AsRef<str>
+            {
+                self.msg_plus(msg, " ");
+                self
+            }
+            pub fn msgds<AsStr>(&mut self, msg: AsStr) -> &mut Self
+            where
+                AsStr: AsRef<str>
+            {
+                self.msg_plus(msg, ". ");
+                self
+            }
 
     /* Erasers */
 

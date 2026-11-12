@@ -269,6 +269,21 @@ impl<'a, T> BayernOr<'a, T> {
                 self
             }
 
+            pub fn msgs<AsStr>(&mut self, msg: AsStr) -> &mut Self
+            where
+                AsStr: AsRef<str>
+            {
+                self.msg_plus(msg, " ");
+                self
+            }
+            pub fn msgds<AsStr>(&mut self, msg: AsStr) -> &mut Self
+            where
+                AsStr: AsRef<str>
+            {
+                self.msg_plus(msg, ". ");
+                self
+            }
+
             /// Appends a message followed by a period and newline.
             ///
             /// # Arguments

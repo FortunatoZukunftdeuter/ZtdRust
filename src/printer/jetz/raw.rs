@@ -1,4 +1,4 @@
-/* Print Jetz */
+ /* Print Jetz */
 #[macro_export]
 macro_rules! printj {
     ($($arg:tt)*) => {{
@@ -7,9 +7,10 @@ macro_rules! printj {
         let stdout = std::io::stdout();
         let mut stdout = stdout.lock();
 
-        write!(stdout, $($arg)*)
-            .and_then(|_| write!(stdout, ". "))
-            .and_then(|_| stdout.flush())
+        let result = write!(stdout, "{}", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
     }};
 }
 
@@ -22,9 +23,10 @@ macro_rules! printsj {
         let stdout = std::io::stdout();
         let mut stdout = stdout.lock();
 
-        write!(stdout, $($arg)*)
-            .and_then(|_| write!(stdout, " "))
-            .and_then(|_| stdout.flush())
+        let result = write!(stdout, "{} ", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
     }};
 }
 
@@ -37,9 +39,10 @@ macro_rules! printdj {
         let stdout = std::io::stdout();
         let mut stdout = stdout.lock();
 
-        write!(stdout, $($arg)*)
-            .and_then(|_| write!(stdout, "."))
-            .and_then(|_| stdout.flush())
+        let result = write!(stdout, "{}.", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
     }};
 }
 
@@ -52,8 +55,41 @@ macro_rules! printdsj {
         let stdout = std::io::stdout();
         let mut stdout = stdout.lock();
 
-        write!(stdout, $($arg)*)
-            .and_then(|_| write!(stdout, ". "))
-            .and_then(|_| stdout.flush())
+        let result = write!(stdout, "{}. ", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
+    }};
+}
+
+/* Print Line Jetz */
+#[macro_export]
+macro_rules! printlnj {
+    ($($arg:tt)*) => {{
+        use std::io::Write;
+
+        let stdout = std::io::stdout();
+        let mut stdout = stdout.lock();
+
+        let result = writeln!(stdout, "{}", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
+    }};
+}
+
+/* Print Dotted Line Jetz */
+#[macro_export]
+macro_rules! printdlnj {
+    ($($arg:tt)*) => {{
+        use std::io::Write;
+
+        let stdout = std::io::stdout();
+        let mut stdout = stdout.lock();
+
+        let result = writeln!(stdout, "{}.", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
     }};
 }
