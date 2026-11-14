@@ -1,5 +1,0 @@
-test == inko run /test/flow.inko
-
-add == git add
-
-push == git push origin Stable

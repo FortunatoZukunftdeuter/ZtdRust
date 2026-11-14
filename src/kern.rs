@@ -1,9 +1,6 @@
-#![allow(unused_imports)]
-
 pub use std::format as f;
 
 pub use crate::bayern::{
-    /* Traits */
     UnwrapOrBayern,
     UnwrapOrByeOption,
     UnwrapOrByePossible,
@@ -11,7 +8,6 @@ pub use crate::bayern::{
 };
 
 pub use crate::{
-    /* Macros */
     bye_fnc,
 
     bye_msg,
@@ -45,17 +41,12 @@ pub use crate::variants::{
     ResultToPossible,
     OptionToPossible
 };
+
 pub use crate::vfs::{
     ZtdHardlink
 };
 
 pub use crate::Debugger;
 
-
-pub use crate::amplified::{
-    prcs::traits::*
-};
-#[cfg(feature = "pattern")]
-pub use crate::amplified::{
-    str::traits::*
-};
+pub use crate::amplified::prcs::traits::*;
+pub use crate::amplified::str::*;

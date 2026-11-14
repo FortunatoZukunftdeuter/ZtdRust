@@ -1,6 +1,12 @@
-mod types; pub use types::*;
+#[cfg(feature = "nightly")]
+mod split;
+#[cfg(feature = "nightly")]
+pub use split::*;
 
-mod functions; pub use functions::*;
+mod impls; pub use impls::ZtdIsCase;
 
-mod impls;
-pub mod traits;
+#[cfg(feature = "nightly")]
+pub use impls::{
+    ZtdSplitWithFixIter,
+    ZtdSpliterWithFixOnce
+};
