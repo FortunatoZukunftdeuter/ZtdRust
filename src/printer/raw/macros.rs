@@ -1,31 +1,89 @@
- /* Print Dotted */
 #[macro_export]
-macro_rules! printd {
-    ($($arg:tt)*) => {
-        print!("{}.", format_args!($($arg)*));
-    };
+macro_rules! printf {
+    ($($arg:tt)*) => {{
+        use std::io::Write;
+
+        let stdout = std::io::stdout();
+        let mut stdout = stdout.lock();
+
+        let result = write!(stdout, "{}", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
+    }};
 }
 
-/* Print Spaced */
 #[macro_export]
-macro_rules! prints {
-    ($($arg:tt)*) => {
-        print!("{} ", format_args!($($arg)*));
-    };
+macro_rules! printsf {
+    ($($arg:tt)*) => {{
+        use std::io::Write;
+
+        let stdout = std::io::stdout();
+        let mut stdout = stdout.lock();
+
+        let result = write!(stdout, "{} ", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
+    }};
 }
 
-/* Print Dotted Spaced */
 #[macro_export]
-macro_rules! printds {
-    ($($arg:tt)*) => {
-        print!("{}. ", format_args!($($arg)*));
-    };
+macro_rules! printdf {
+    ($($arg:tt)*) => {{
+        use std::io::Write;
+
+        let stdout = std::io::stdout();
+        let mut stdout = stdout.lock();
+
+        let result = write!(stdout, "{}.", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
+    }};
 }
 
-/* Print Dotted New Line */
 #[macro_export]
-macro_rules! printdln {
-    ($($arg:tt)*) => {
-        println!("{}.", format_args!($($arg)*));
-    };
+macro_rules! printdsf {
+    ($($arg:tt)*) => {{
+        use std::io::Write;
+
+        let stdout = std::io::stdout();
+        let mut stdout = stdout.lock();
+
+        let result = write!(stdout, "{}. ", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
+    }};
+}
+
+#[macro_export]
+macro_rules! printlnf {
+    ($($arg:tt)*) => {{
+        use std::io::Write;
+
+        let stdout = std::io::stdout();
+        let mut stdout = stdout.lock();
+
+        let result = writeln!(stdout, "{}", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
+    }};
+}
+
+#[macro_export]
+macro_rules! printdlnf {
+    ($($arg:tt)*) => {{
+        use std::io::Write;
+
+        let stdout = std::io::stdout();
+        let mut stdout = stdout.lock();
+
+        let result = writeln!(stdout, "{}.", format_args!($($arg)*))
+            .and_then(|_| stdout.flush());
+
+        result
+    }};
 }

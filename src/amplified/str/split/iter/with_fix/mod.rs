@@ -3,7 +3,7 @@ use std::str::pattern::Pattern;
 mod prefix;
 mod subfix;
 mod among;
-
+#[allow(dead_code)]
 pub(crate) struct ZtdSplitWithFix<'a, P1, P2: Pattern, P3> {
 
     slice: &'a str,

@@ -32,7 +32,14 @@ pub use crate::{
     printdj,
     printdsj,
     printdlnj,
-    printlnj
+    printlnj,
+
+    printf,
+    printsf,
+    printdf,
+    printdsf,
+    printlnf,
+    printdlnf
 };
 
 pub use crate::variants::{
@@ -49,4 +56,9 @@ pub use crate::vfs::{
 pub use crate::Debugger;
 
 pub use crate::amplified::prcs::traits::*;
-pub use crate::amplified::str::*;
+pub use crate::amplified::str::ZtdIsCase;
+#[cfg(feature = "nightly")]
+pub use crate::amplified::str::{
+    ZtdSplitWithFixIter,
+    ZtdSpliterWithFixOnce
+};
